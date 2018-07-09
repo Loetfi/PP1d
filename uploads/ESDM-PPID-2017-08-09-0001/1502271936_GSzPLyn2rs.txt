@@ -1,0 +1,10 @@
+.png</LocalFile> : 59
+.jpg</LocalFile> : 654
+.jpeg</LocalFile>: 1
+.ico</LocalFile> : 4
+.gif</LocalFile> : 48
+.svg</LocalFile> : 25
+
+
+
+png, jpg, jpeg, bmp, ico, gif, svg
