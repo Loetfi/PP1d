@@ -29,8 +29,4 @@ function menudetail($menu_detail_id)
             where a.menu_detail_id = '$menu_detail_id' and b.language_name = 'ID'
             and a.status = '1' ")->result();
     return $query;
-}
-
-?>
-
-
+} 
