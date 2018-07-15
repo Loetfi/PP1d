@@ -125,6 +125,11 @@ class Permohonan_model extends CI_Model{
         FROM ppid_dispos a
         LEFT JOIN ppid_unit b ON b.id_unit = a.unit_tujuan
         WHERE no_permohonan = '$no_permohonan'
+		GROUP BY a.sifat, 
+            a.catatan, 
+            a.file_nameasli, 
+            a.file_pendukung, 
+            a.cdate
         ";
         $query = $this->db->query($sql);
 		return $query->row_array();
@@ -184,6 +189,10 @@ class Permohonan_model extends CI_Model{
         FROM ppid_dispos a
         LEFT JOIN ppid_unit b ON b.id_unit = a.unit_tujuan
         WHERE file_pendukung like '%".$filename."%'
+		GROUP BY a.catatan, 
+            a.file_nameasli, 
+            a.file_pendukung, 
+            a.cdate
         ";
         $query = $this->db->query($sql);
 		return $query->row_array();
@@ -198,6 +207,10 @@ class Permohonan_model extends CI_Model{
         FROM ppid_dispos a
         LEFT JOIN ppid_unit b ON b.id_unit = a.unit_tujuan
         WHERE file_replay like '%".$filename."%'
+		GROUP BY a.catatan, 
+            a.file_replayasli file_nameasli, 
+            a.file_replay file_pendukung, 
+            a.cdate
         ";
         $query = $this->db->query($sql);
 		return $query->row_array();

@@ -3,6 +3,8 @@
 <main class="main">
     <!-- <?php print_r($slider); ?> -->
 
+	<div class="row" style="background: #f4f5f8;">
+		<div class="col-md-9" style="padding-right: 0">
     <section class="home-slider">
         <div class="flexslider">
             <ul class="slides">
@@ -17,9 +19,14 @@
                     </div>
                 </li> 
                 <?php } ?>  
-         </ul>
-     </div>
- </section> 
+			</ul>
+		</div>
+	</section>
+		</div>
+		<div class="col-md-3">
+		<?php $this->load->view('front/home_login_profil'); ?>
+		</div>
+	</div>
  
  <section class="home-news">
     <div class="container">
