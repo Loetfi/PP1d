@@ -208,8 +208,8 @@ class Permohonan_model extends CI_Model{
         LEFT JOIN ppid_unit b ON b.id_unit = a.unit_tujuan
         WHERE file_replay like '%".$filename."%'
 		GROUP BY a.catatan, 
-            a.file_replayasli file_nameasli, 
-            a.file_replay file_pendukung, 
+            a.file_replayasli, 
+            a.file_replay, 
             a.cdate
         ";
         $query = $this->db->query($sql);
