@@ -168,7 +168,7 @@ Berikut informasi Nomor Registrasi Permohonan Anda:<br>
 ".$no_permohonan."<br><br>
 
 Salam Keterbukaan Informasi Publik,<br>
-Admin Aplikasi PPID Kementerian ESDM";
+PPID Kementerian ESDM";
                 $headers_ss  = 'MIME-Version: 1.0' . "\r\n";
                 $headers_ss .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
                 // $headers_ss .= 'From: PPID ESDM <noreply@ppid.esdm.go.id>' . "\r\n";
@@ -348,7 +348,7 @@ $isi = "Status permohonan informasi Anda telah berubah:<br>
 <br><br>
 
 Salam Keterbukaan Informasi Publik,<br>
-Admin Aplikasi PPID Kementerian ESDM";
+PPID Kementerian ESDM";
 $headers_ss  = 'MIME-Version: 1.0' . "\r\n";
 $headers_ss .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 $headers_ss .= 'From: PPID ESDM <noreply@ppid.esdm.go.id>' . "\r\n";
@@ -491,7 +491,7 @@ $isi = "Status permohonan informasi Anda telah berubah:<br>
 <br><br>
 
 Salam Keterbukaan Informasi Publik,<br>
-Admin Aplikasi PPID Kementerian ESDM";
+PPID Kementerian ESDM";
 $headers_ss  = 'MIME-Version: 1.0' . "\r\n";
 $headers_ss .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 $headers_ss .= 'From: PPID ESDM <noreply@ppid.esdm.go.id>' . "\r\n";
@@ -543,7 +543,7 @@ $isi = "Status permohonan informasi Anda telah berubah:<br>
 <br><br>
 
 Salam Keterbukaan Informasi Publik,<br>
-Admin Aplikasi PPID Kementerian ESDM";
+PPID Kementerian ESDM";
 $headers_ss  = 'MIME-Version: 1.0' . "\r\n";
 $headers_ss .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 $headers_ss .= 'From: PPID ESDM <noreply@ppid.esdm.go.id>' . "\r\n";
@@ -687,7 +687,7 @@ Silahkan kembali mengecek permohonan informasi Anda pada web kami.
 <br><br>
 
 Salam Keterbukaan Informasi Publik,<br>
-Admin Aplikasi PPID Kementerian ESDM";
+PPID Kementerian ESDM";
 $headers_ss  = 'MIME-Version: 1.0' . "\r\n";
 $headers_ss .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 $headers_ss .= 'From: PPID ESDM <noreply@ppid.esdm.go.id>' . "\r\n";
