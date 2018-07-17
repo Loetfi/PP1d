@@ -36,6 +36,8 @@ class Unit_model extends CI_Model{
             $where = array('id_parent' => $row['id_unit']);
             $subUnit = $this->list_unit($where);
             $j=0;
+			
+			$allArr['child'][$i] = array();
             foreach($subUnit as $subRow){
                 $allArr['child'][$i][$j] = $subRow;
                 // echo '->->'.$subRow['id_unit'].'|'.$subRow['nama_unit'].'<br>';
