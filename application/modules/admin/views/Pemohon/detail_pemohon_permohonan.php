@@ -11,6 +11,6 @@
         <p>No KTP: <?php echo $detailPemohon['no_identitas']; ?></p>
         <p>Tlp: <?php echo $detailPemohon['tlp']; ?></p>
         <p>Email: <?php echo $detailPemohon['email']; ?></p>
-        <p>Role: <?php echo $detailPemohon['role']; ?></p>
+        <p>Status: <?php echo $detailPemohon['role']; ?></p>
     </div>
 </div>
