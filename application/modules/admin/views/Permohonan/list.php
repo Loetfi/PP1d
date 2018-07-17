@@ -71,7 +71,7 @@
                     <td><?php echo @$row['dispos']; ?></td> 
                     <td><?php echo date('Y-m-d H:i', $row['cdate']); ?></td>
                     <td><?php echo date('Y-m-d H:i', $row['mdate']); ?></td>
-                    <td><?php if ($row['status'] != 'Selesai') echo @$terlambat; ?></td>
+                    <td><?php if ($row['status'] != 'Selesai' && $row['status'] != 'ToLak') echo @$terlambat; ?></td>
                     <td>
                         <a href="<?php echo site_url($this->session->userdata('ses_ppid_user_level').'/permohonan/detail'); ?>/<?php echo $row['no_permohonan']; ?>" class="btn btn-default btn-sm thisForRead" thisCode="<?php echo $row['no_permohonan']; ?>">Detail</a>
                     </td>
