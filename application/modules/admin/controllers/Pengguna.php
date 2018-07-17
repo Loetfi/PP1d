@@ -10,7 +10,7 @@ class Pengguna extends CI_Controller {
         $this->load->library('form_validation');
         $this->load->library('breadcrumbs');
         
-        $this->breadcrumbs->push('Home', 'api/mockup/depan');
+        $this->breadcrumbs->push('Home', base_url());
         $this->breadcrumbs->push('Master Pengguna', 'admin/pengguna');
     }
     
