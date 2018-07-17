@@ -458,7 +458,7 @@ $send_email = mail($kepada, $judul, $isi, $headers_ss);
 				$dataInsertLog = array(
 					'no_permohonan' => $no_permohonan,
 					'status' => 'Disposisi',
-					'deskripsi' => 'Permohonan sedang dalam proses tindak lanjut di unit PPID terkait',
+					'deskripsi' => 'Permohonan sedang dalam proses tindak lanjut di unit kerja terkait',
 					'cdate' => $cDate,
 					'id_admin' => $id_pengguna,
 				);
