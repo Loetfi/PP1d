@@ -26,9 +26,9 @@
     // print_r($this->session->userdata());
     // echo '</pre>';
     if ($this->session->userdata('ses_ppid_user_code') == '' || $this->session->userdata('ses_ppid_user_foto') == '')
-        echo anchor('profil', '<i class="fa fa-plus"></i> Tambah Permohonan','class="btn btn-default btn-sm profil"');
+        echo anchor('profil', '<i class="fa fa-plus"></i> Buat Permohonan','class="btn btn-default btn-sm profil"');
     else 
-        echo anchor('permohonan/add', '<i class="fa fa-plus"></i> Tambah Permohonan','class="btn btn-default btn-sm"');
+        echo anchor('permohonan/add', '<i class="fa fa-plus"></i> Buat Permohonan','class="btn btn-default btn-sm"');
     ?>
 <br><br>
   <div class="table-responsive">
