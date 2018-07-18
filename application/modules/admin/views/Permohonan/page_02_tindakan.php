@@ -90,8 +90,8 @@
                 <div class="col-sm-10">
                 <select name="Alasan" id="Alasan" class="form-control">
                     <option value="Persyaratan Tidak Lengkap">Persyaratan Tidak Lengkap</option>
-                    <option value="Data tidak dalam penguasaan ESDM">Data tidak dalam penguasaan ESDM</option>
-                    <option value="Data dikecualikan">Data dikecualikan</option>
+                    <option value="Informasi tidak dalam penguasaan Kementerian ESDM">Informasi tidak dalam penguasaan Kementerian ESDM</option>
+                    <option value="Informasi dikecualikan">Informasi dikecualikan</option>
                 </select>
                 </div>
             </div>
