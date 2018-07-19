@@ -28,19 +28,19 @@
                     <?php  if ($detail['ktp_img'] != '') { ?>
                     <img src="<?php echo base_url('uploads/profil/'.$detail['ktp_img']); ?>" style="max-height: 200px; max-width: 200px;" alt="myImg" ><br>
                     <?php } else { ?>
-                    <img src="<?php echo base_url('resources/myResources/img/no_img.jpg'); ?>" style="max-height: 200px; max-width: 200px;" alt="no img"><br>
+                    <img src="<?php echo base_url('uploads/profil/no-image.png'); ?>" style="max-height: 200px; max-width: 200px;" alt="no img"><br>
                     <?php } ?>
                 </div>
             </div>
 
-            <div class="panel panel-warning">
+            <!-- div class="panel panel-warning">
                 <div class="panel-heading">
                     <h3 class="panel-title">Ubah Password</h3>
                 </div>
                 <div class="panel-body">
                     Panel content
                 </div>
-            </div>
+            </div -->
             
         </div>
 

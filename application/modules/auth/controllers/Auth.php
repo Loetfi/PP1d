@@ -48,7 +48,7 @@ class Auth extends CI_Controller {
             $arr = array(
                 'loginStatus' => $loginStatus,
                 'pesan' => 'Login Berhasil',
-                'redirect' => site_url($aktor.'permohonan'),
+                'redirect' => site_url(),
                 );
         }
         else if ($loginStatus == 'nonAktif'){

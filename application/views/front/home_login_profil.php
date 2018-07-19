@@ -111,7 +111,7 @@ $(function () {
 		<?php if ($this->session->userdata('ses_ppid_user_foto') != '') { ?>
 			<img src="<?php echo base_url('uploads/profil/'.$this->session->userdata('ses_ppid_user_foto')); ?>" style="max-height: 200px; max-width: 200px;" alt="myImg" ><br>
 		<?php } else { ?>
-			<img src="<?php echo base_url('resources/myResources/img/no_img.jpg'); ?>" style="max-height: 200px; max-width: 200px;" alt="no img"><br>
+			<img src="<?php echo base_url('uploads/profil/no-image.png'); ?>" style="max-height: 200px; max-width: 200px;" alt="no img"><br>
 		<?php } ?>
 		<h3><?php echo ucwords(strtolower(@$this->session->userdata('ses_ppid_user_nama'))); ?></h3>
 		
