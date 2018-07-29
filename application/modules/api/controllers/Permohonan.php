@@ -58,6 +58,23 @@ class Permohonan extends CI_Controller {
 		
 	}
 
+
+	// riwayat
+	public function by_riwayat()
+	{
+		$id_permohonan = $this->input->get('id_permohonan');
+		$this->data['res'] = $this->permohonan_model->by_riwayat($id_permohonan);
+
+		try { 
+			if(empty($this->data['res'])) {
+				$this->res(400, 0, 'Gagal', []);
+			} else {
+				$this->res(200, 1, 'Berhasil', $this->data['res']);
+			}
+		} catch (Exception $e) {
+			$this->res(200, 1, 'Berhasil', $e->getMessage());
+		}
+	}
 }
 
 /* End of file Permohonan.php */

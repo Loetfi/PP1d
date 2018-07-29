@@ -45,6 +45,17 @@ class Permohonan_model extends CI_Model {
 		 
 	}	
 
+	// by riwayat 
+	function by_riwayat($id_permohonan)
+	{
+		return $this->db->select('*')
+		->from('ppid_permohonan_log')
+		->where('no_permohonan',$id_permohonan)
+		->order_by('cdate','asc')
+		->get()
+		->result_array();
+	}
+
 }
 
 /* End of file Permohonan_model.php */
