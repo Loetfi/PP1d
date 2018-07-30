@@ -68,6 +68,18 @@ class Permohonan_model extends CI_Model {
 		->result_array();
 	}
 
+	// balasan 
+
+
+
+	function by_balasan($no_permohonan){
+		return $this->db->select('*')
+		->from('ppid_permohonan_balasan')
+		->where('no_permohonan',$no_permohonan)
+		->get()
+		->result_array(); 
+	}
+
 }
 
 /* End of file Permohonan_model.php */

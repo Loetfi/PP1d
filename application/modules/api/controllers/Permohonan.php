@@ -33,7 +33,7 @@ class Permohonan extends CI_Controller {
 				$this->res(200, 1, 'Berhasil', $this->permohonan_model->by_pengguna($id_pengguna));
 			}
 		} catch (Exception $e) {
-				$this->res(400, 0, 'Gagal', $e->getMessage());
+			$this->res(400, 0, 'Gagal', $e->getMessage());
 		}
 
 	}
@@ -111,6 +111,50 @@ class Permohonan extends CI_Controller {
 			$this->res(200, 1, 'Berhasil', $e->getMessage());
 		}
 	}
+
+
+	// permohonan/detail/ESDM-PPID/2017/12/05-0002
+
+	function by_balasan(){
+		$id_permohonan = $this->input->get('id_permohonan');
+		$this->data['res'] = $this->permohonan_model->by_balasan($id_permohonan);
+
+		try { 
+			if(empty($this->data['res'])) {
+				$this->res(400, 0, 'Gagal', []);
+			} else {
+
+				foreach ($this->data['res'] as $row) {
+					$resp['no_permohonan'] = $row['no_permohonan'];
+					$resp['id_admin'] = $row['id_admin'];
+					$resp['subjek'] = $row['subjek'];
+					$resp['balasan'] = $row['balasan']; 
+
+
+					$file_nameasli = explode(';',$row['file_nameasli']);
+					$file_pendukung = explode(';',$row['file_pendukung']);
+
+					for($i=0; $i<count($file_pendukung) -1; $i++){ 
+						$namaFile = $file_pendukung[$i]; 
+						$namaFileAsli = $file_nameasli[$i];  
+						$resp['file_pendukung'][] = site_url(@$this->session->userdata('ses_ppid_user_level').'/permohonan/downloadFile/'.str_replace('/','-',$id_permohonan).'/'.$namaFile);
+						$resp['file_nameasli'][] = $row['file_nameasli'];
+					}
+
+					$resp['cdate'] = $row['cdate'];
+					$resp['mdate'] = $row['mdate'];
+					$respon[] = $resp;
+				}
+
+				$this->res(200, 1, 'Berhasil', $respon);
+			}
+		} catch (Exception $e) {
+			$this->res(200, 1, 'Berhasil', $e->getMessage());
+		}
+ 
+	} 
+
+
 }
 
 /* End of file Permohonan.php */
