@@ -43,7 +43,19 @@ class Permohonan_model extends CI_Model {
 		->get()
 		->row_array();
 		 
-	}	
+	}
+	
+	function getLastNoPermohonan(){
+		$sql = "select max(no_permohonan) as no_permohonan 
+		from ppid_permohonan 
+		where no_permohonan like 'ESDM-PPID/".date('Y/m/d')."%'";
+		$query = $this->db->query($sql);
+		return $query->row_array();
+	}
+
+	function insert_permohonan($data_insert){
+		return $this->db->insert('ppid_permohonan', $data_insert);
+	}
 
 	// by riwayat 
 	function by_riwayat($id_permohonan)
