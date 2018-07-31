@@ -105,7 +105,18 @@ class Permohonan extends CI_Controller {
 			if(empty($this->data['res'])) {
 				$this->res(400, 0, 'Gagal', []);
 			} else {
-				$this->res(200, 1, 'Berhasil', $this->data['res']);
+
+				foreach ($this->data['res'] as $row) {
+					$respon['id']	 =  $row['id'];
+					$respon['no_permohonan'] = $row['no_permohonan'];
+					$respon['status'] = $row['status'];
+					$respon['deskripsi'] = $row['deskripsi'];
+					$respon['cdate'] = date('d F Y', strtotime($row['cdate']));
+					$respon['id_admin'] = $row['id_admin'];
+					$res[] = $respon; 
+				}
+
+				$this->res(200, 1, 'Berhasil', $res);
 			}
 		} catch (Exception $e) {
 			$this->res(200, 1, 'Berhasil', $e->getMessage());
