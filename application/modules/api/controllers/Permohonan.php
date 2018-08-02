@@ -148,7 +148,8 @@ class Permohonan extends CI_Controller {
 					for($i=0; $i<count($file_pendukung) -1; $i++){ 
 						$namaFile = $file_pendukung[$i]; 
 						$namaFileAsli = $file_nameasli[$i];  
-						$resp['file_pendukung'][] = site_url(@$this->session->userdata('ses_ppid_user_level').'/permohonan/downloadFile/'.str_replace('/','-',$id_permohonan).'/'.$namaFile);
+						//$resp['file_pendukung'][] = site_url(@$this->session->userdata('ses_ppid_user_level').'/permohonan/downloadFile/'.str_replace('/','-',$id_permohonan).'/'.$namaFile);
+						$resp['file_pendukung'][] = base_url().'uploads/'.str_replace('/','-',$id_permohonan).'/'.$namaFile;
 						$resp['file_nameasli'][] = $row['file_nameasli'];
 					}
 
