@@ -45,7 +45,8 @@ class Permohonan_model extends CI_Model {
 		 
 	}
 	
-	function getLastNoPermohonan(){
+	function getLastNoPermohonan()
+	{
 		$sql = "select max(no_permohonan) as no_permohonan 
 		from ppid_permohonan 
 		where no_permohonan like 'ESDM-PPID/".date('Y/m/d')."%'";
@@ -76,15 +77,6 @@ class Permohonan_model extends CI_Model {
 		->where('no_permohonan',$no_permohonan)
 		->get()
 		->result_array(); 
-	}
-	
-	function getLastNoPermohonan()
-	{
-		$sql = "SELECT max(no_permohonan) AS no_permohonan 
-				FROM ppid_permohonan 
-				WHERE no_permohonan LIKE 'ESDM-PPID/".date('Y/m/d')."%'";
-		$query = $this->db->query($sql);
-		return $query->row_array();
 	}
 
 }
