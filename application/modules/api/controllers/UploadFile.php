@@ -18,14 +18,15 @@ class UploadFile extends CI_Controller
 	{
 		header('Access-Control-Allow-Origin: *');
 		$posting = $_FILES;
-		echo json_encode($posting);
+		$param = array('header' => getallheaders(), 'body' => $posting);
+		echo json_encode($param);
 		exit;
 		
 		## get new id order ESDM-PPID/2016/07/15-0002
-		$tgl = date('Y/m/d');
+		/*$tgl = date('Y/m/d');
 		$lastData = $this->permohonan_model->getLastNoPermohonan();
 		$idOrder = (int)substr($lastData['no_permohonan'],21) + 1;
-		$no_permohonan = "ESDM-PPID/".$tgl."-".str_pad($idOrder, 4, "0", STR_PAD_LEFT);
+		$no_permohonan = "ESDM-PPID/".$tgl."-".str_pad($idOrder, 4, "0", STR_PAD_LEFT);*/
 
 		## membuat folder untuk wadah upload file. ESDM-PPID-2016-07-15-0002
 		$namaFolder = str_replace('/','-',$no_permohonan);
