@@ -88,6 +88,31 @@ class Permohonan extends CI_Controller {
 
 		$do_insert = $this->permohonan_model->insert_permohonan($insert_data);
 		if(@$do_insert) {
+			## insert ke log
+			$dataInsertLog = array(
+				'no_permohonan' => $no_permohonan,
+				'status' => 'Pending',
+				'deskripsi' => 'Permohonan Telah dikirimkan. Silahkan menunggu respon dari kami',
+				'cdate' => $cDate,
+			);
+			$this->Permohonan_model->insert_permohonan_log($dataInsertLog);
+
+			## email
+			$kepada = $detailPengguna['email'];
+			$judul = 'Permohonan Informasi No '.$no_permohonan.' PPID Kementerian ESDM';
+			$isi = "Terima kasih telah melakukan permohonan informasi publik. Permohonan Anda sedang diverifikasi.<br>
+
+					Berikut informasi Nomor Registrasi Permohonan Anda:<br>
+					".$no_permohonan."<br><br>
+
+					Salam Keterbukaan Informasi Publik,<br>
+					Admin Aplikasi PPID Kementerian ESDM";
+			$headers_ss  = 'MIME-Version: 1.0' . "\r\n";
+			$headers_ss .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+			$headers_ss .= 'From: PPID ESDM <noreply@ppid.esdm.go.id>' . "\r\n";
+			// $headers_ss .= 'From: dule sundule<noreply@dule-sundule.com>' . "\r\n";
+			$send_email = mail($kepada, $judul, $isi, $headers_ss);
+			
 			$this->res(200, 1, 'Berhasil', $no_permohonan);
 		}
 		else {

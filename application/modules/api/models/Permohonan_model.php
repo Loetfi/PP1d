@@ -78,6 +78,13 @@ class Permohonan_model extends CI_Model {
 		->get()
 		->result_array(); 
 	}
+	
+	// update permohonan
+	function update_permohonan_by_id($param)
+	{
+		$this->db->where('no_permohonan', $param['id']);
+		return $this->db->update('ppid_permohonan', $param['data']);
+	}
 
 }
 
