@@ -7,6 +7,7 @@ class Permohonan extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('permohonan_model');
+		$this->load->model('auth/User_account_model', 'User_account_model');
 	}
 
 	function res($statusHeader, $status, $message, $data)
@@ -64,6 +65,7 @@ class Permohonan extends CI_Controller {
 		
 		// get date
 		$cDate = time();
+		$detailPengguna = $this->User_account_model->detailPengguna(@$post['id_pengguna']);
 		
 		// generate nomor permohonan
 		$tgl = date('Y/m/d');
