@@ -52,6 +52,8 @@ class UploadFile extends CI_Controller
 		$config['overwrite']		= true;
 
 		$files = $_FILES;
+		$this->res(200, 1, 'Tes', $_FILES);
+		exit;
 		for($i = 0; $i < count($files['ionfile']['name']); $i++)
 		{
 			if($files['ionfile']['error'][$i] == 0)
