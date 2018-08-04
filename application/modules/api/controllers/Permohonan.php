@@ -9,14 +9,14 @@ class Permohonan extends CI_Controller {
 		$this->load->model('permohonan_model');
 	}
 
-	function res($statusHeader,$status , $message, $data )
+	function res($statusHeader, $status, $message, $data)
 	{ 
 		$this->output->set_header('Access-Control-Allow-Origin: *');
 		$this->output->set_header('Access-Control-Allow-Methods: POST, GET'); 
 		$this->output->set_header('Access-Control-Allow-Headers: Origin');
 		$this->output->set_content_type('application/json');
 		$this->output->set_status_header($statusHeader);
-		$this->output->set_output(json_encode(array ('status' => $status , 'message' =>  $message , 'data' => $data)));
+		$this->output->set_output(json_encode(array('status' => $status , 'message' =>  $message , 'data' => $data)));
 		$this->output->_display();
 		exit();
 	}
@@ -88,7 +88,7 @@ class Permohonan extends CI_Controller {
 
 		$do_insert = $this->permohonan_model->insert_permohonan($insert_data);
 		if(@$do_insert) {
-			$this->res(200, 1, $no_permohonan);
+			$this->res(200, 1, 'Berhasil', $no_permohonan);
 		}
 		else {
 			$this->res(400, 0, 'Gagal');
