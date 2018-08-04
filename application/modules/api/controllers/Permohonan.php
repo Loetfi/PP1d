@@ -95,7 +95,7 @@ class Permohonan extends CI_Controller {
 				'deskripsi' => 'Permohonan Telah dikirimkan. Silahkan menunggu respon dari kami',
 				'cdate' => $cDate,
 			);
-			$this->Permohonan_model->insert_permohonan_log($dataInsertLog);
+			$this->permohonan_model->insert_permohonan_log($dataInsertLog);
 
 			## email
 			$kepada = $detailPengguna['email'];

@@ -79,6 +79,11 @@ class Permohonan_model extends CI_Model {
 		->result_array(); 
 	}
 	
+	function insert_permohonan_log($data_insert)
+	{
+		return $this->db->insert('ppid_permohonan_log', $data_insert);
+	}
+	
 	// update permohonan
 	function update_permohonan_by_id($param)
 	{
