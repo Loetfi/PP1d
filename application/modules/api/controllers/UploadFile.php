@@ -18,6 +18,7 @@ class UploadFile extends CI_Controller
 	{
 		header('Access-Control-Allow-Origin: *');
 		$posting = $_FILES;
-		echo "<pre>"; print_r($posting); exit;
+		json_encode($posting);
+		exit;
 	}
 }
