@@ -88,7 +88,7 @@ class Permohonan extends CI_Controller {
 
 		$do_insert = $this->permohonan_model->insert_permohonan($insert_data);
 		if(@$do_insert) {
-			$this->res(200, 1, 'Berhasil');
+			$this->res(200, 1, $no_permohonan);
 		}
 		else {
 			$this->res(400, 0, 'Gagal');
