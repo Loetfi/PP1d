@@ -18,7 +18,7 @@ class UploadFile extends CI_Controller
 	{
 		header('Access-Control-Allow-Origin: *');
 		$posting = $_FILES;
-		$param = array('header' => getallheaders(), 'body' => $posting);
+		$param = array('id_permohonan' => $this->input->get(), 'body' => $posting);
 		echo json_encode($param);
 		exit;
 		
