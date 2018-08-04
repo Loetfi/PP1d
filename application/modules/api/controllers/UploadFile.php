@@ -16,7 +16,8 @@ class UploadFile extends CI_Controller
 	
 	public function unggah_berkas()
 	{
-		$posting = $this->input->post();
+		header('Access-Control-Allow-Origin: *');
+		$posting = $_FILES;
 		echo "<pre>"; print_r($posting); exit;
 	}
 }
