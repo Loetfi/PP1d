@@ -176,7 +176,7 @@ Admin Aplikasi PPID Kementerian ESDM";
 $headers_ss  = 'MIME-Version: 1.0' . "\r\n";
 $headers_ss .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 $headers_ss .= 'From: PPID ESDM <noreply@ppid.esdm.go.id>' . "\r\n";
-$send_email = mail($kepada, $judul, $isi, $headers_ss);
+$send_email = mail($kepada.',ppid@esdm.go.id', $judul, $isi, $headers_ss);
                 
                 ## berhasil
                 redirect(site_url($this->session->userdata('ses_ppid_user_level').'/permohonan/detail/'.$no_permohonan));
@@ -307,7 +307,7 @@ Admin Aplikasi PPID Kementerian ESDM";
                 $headers_ss .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
                 // $headers_ss .= 'From: PPID ESDM <noreply@ppid.esdm.go.id>' . "\r\n";
                 $headers_ss .= 'From: dule sundule<noreply@dule-sundule.com>' . "\r\n";
-                $send_email = mail($kepada, $judul, $isi, $headers_ss);
+                $send_email = mail($kepada.',ppid@esdm.go.id', $judul, $isi, $headers_ss);
 				
 				$this->session->set_flashdata('itemFlashData','Sukses');
 				redirect(site_url($this->session->userdata('ses_ppid_user_level').'/permohonan/detail/'.$no_permohonan));
@@ -478,7 +478,7 @@ Admin Aplikasi PPID Kementerian ESDM";
 $headers_ss  = 'MIME-Version: 1.0' . "\r\n";
 $headers_ss .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 $headers_ss .= 'From: PPID ESDM <noreply@ppid.esdm.go.id>' . "\r\n";
-$send_email = mail($kepada, $judul, $isi, $headers_ss);
+$send_email = mail($kepada.',ppid@esdm.go.id', $judul, $isi, $headers_ss);
                 
                 $this->session->set_flashdata('itemFlashData','Update Permohonan Proses Mandiri, Sukses');
                 redirect(site_url($this->session->userdata('ses_ppid_user_level').'/permohonan/detail/'.$no_permohonan));
@@ -621,7 +621,7 @@ Admin Aplikasi PPID Kementerian ESDM";
 $headers_ss  = 'MIME-Version: 1.0' . "\r\n";
 $headers_ss .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 $headers_ss .= 'From: PPID ESDM <noreply@ppid.esdm.go.id>' . "\r\n";
-$send_email = mail($kepada, $judul, $isi, $headers_ss);
+$send_email = mail($kepada.',ppid@esdm.go.id', $judul, $isi, $headers_ss);
                 
                 $this->session->set_flashdata('itemFlashData','Permohonan Berhasil Dibalas');
                 redirect(site_url($this->session->userdata('ses_ppid_user_level').'/permohonan'));

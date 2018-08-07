@@ -32,6 +32,7 @@ class Auth extends CI_Controller {
         }else{
             $data['title'] = 'Login';
             $data['page'] = 'login_reg';
+            // $this->session->set_flashdata('itemFlashData','Sukses');
             $this->breadcrumbs->push('Login', '/');
             $this->load->view('template/tema',$data);
         }
@@ -205,6 +206,9 @@ class Auth extends CI_Controller {
                         'mdate' => $cdate,
                         'role' => 'pemohon',
                         'activation_code' => $kode_aktifasi,
+                        
+                        'status' => 'Aktif',
+                        'remarks' => 'Aktifasi Sukses',
                         );
                     $doInsert = $this->User_account_model->registrasi($dataInsert);
                     if ($doInsert){
@@ -228,8 +232,8 @@ class Auth extends CI_Controller {
                         $headers_ss .= 'From: PPID ESDM <noreply@ppid.esdm.go.id>' . "\r\n";
                         $send_email = mail($kepada, $judul, $isi, $headers_ss);
 
-                        redirect(site_url('auth'));
                         $this->session->set_flashdata('itemFlashData','Sukses');
+                        redirect(site_url('auth'));
                         // echo '4';
                     } else{
                         $this->session->set_flashdata('itemFlashData','Gagal');
@@ -356,7 +360,7 @@ class Auth extends CI_Controller {
                 <p>Terima kasih telah melakukan registrasi permohonan informasi publik di PPID Kementerian Energi dan Sumber Daya Mineral (KESDM).</p>
                 <p>Berikut informasi username Anda untuk login ke aplikasi:<br>'.$_POST['username'].'</p>
                 <p>Silahkan klik link berikut untuk aktivasi akun Anda di Aplikasi PPID KESDM.<br>
-                    <a href="'.site_url('User_account/aktifasi/'.$kode_aktifasi).'" target="_blank">Aktifasi</a>
+                    <a href="'.site_url('auth/aktifasi/'.$kode_aktifasi).'" target="_blank">Aktifasi</a>
                 </p>
                 <br/>
                 <br/>
@@ -536,4 +540,137 @@ class Auth extends CI_Controller {
         $data['text'] = $text;
         $this->load->view('template/tema',$data);
     }
+    
+    function cobaEmail(){
+        $kepada = 'suvi.7888@gmail.com';
+        $judul = 'Registrasi PPID Online';
+        $isi = '<p>Yang Terhormat Pemohon, <b>M. Yusuf Sanusi</b></p>
+        <p>Terima kasih telah melakukan registrasi permohonan informasi publik di PPID Kementerian Energi dan Sumber Daya Mineral (KESDM).</p>
+        <p>Berikut informasi username Anda untuk login ke aplikasi:<br>yusufyompmail</p>
+        <p>Silahkan klik link berikut untuk aktivasi akun Anda di Aplikasi PPID KESDM.<br>
+            <a href="'.site_url('auth/aktifasi/5O1CXiGzvU').'" target="_blank">Aktifasi</a>
+        </p>
+        '.site_url('auth/aktifasi/5O1CXiGzvU').'
+        <br/>
+        <br/>
+
+        Salam Keterbukaan Informasi Publik,<br>
+        Admin Aplikasi PPID Kementerian ESDM
+        ';
+        $headers_ss  = 'MIME-Version: 1.0' . "\r\n";
+        $headers_ss .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+        $headers_ss .= 'From: PPID ESDM <noreply@ppid.esdm.go.id>' . "\r\n";
+        $send_email = mail($kepada, $judul, $isi, $headers_ss);
+        print_r($send_email);
+    }
+	
+	function lupaPassword(){
+		$data['title'] = 'Lupa Password';
+		$data['page'] = 'resetPassword';
+		$this->breadcrumbs->push('Lupa Password', '/');
+		
+		$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+		if ($this->form_validation->run() == FALSE){
+			if ($_SERVER['REQUEST_METHOD'] == 'POST')
+				$this->session->set_flashdata('itemFlashGagal','Harap Melengkapi Form yang Telah Disediakan');
+			
+            $this->load->view('template/tema',$data);
+        }
+        else{
+            $email = $_POST['email'];
+			$cek = $this->User_account_model->cekEmail($email);
+			
+			if ((int)$cek['terhitung'] > 0 ){
+				$cdate = time();
+				
+				$seed = str_split('abcdefghijklmnopqrstuvwxyz'
+				   .'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+						 .'0123456789'); // and any other characters
+				shuffle($seed);
+				$rand = '';
+				foreach (array_rand($seed, 10) as $k) $rand .= $seed[$k];
+				$kode_aktifasi=$rand;
+				
+				$dataUpdate = array(
+					'password' => 'PPID_'.$kode_aktifasi,
+					'status' => 'Pending',
+					'mdate' => $cdate,
+					'activation_code' => $kode_aktifasi,
+					);
+				$whereUpdate = array('email' => $email);
+				$doUpdate = $this->User_account_model->penggunaUpdate($dataUpdate, $whereUpdate);
+				
+				
+				$sql = "select * from ppid_pengguna where email = '$email' ";
+				$query = $this->db->query($sql);
+				$detailUser = $query->row_array();
+				
+				
+				$kepada = $email;
+                $judul = 'Reset Password PPID Online';
+                $isi = '<p>Yang Terhormat Pemohon, <b>'.$detailUser['nama'].'</b></p>
+                <p>Terima kasih telah melakukan Reset Password di PPID Kementerian Energi dan Sumber Daya Mineral (KESDM).</p>
+                <p>Berikut informasi username Anda untuk login ke aplikasi:<br>'.$detailUser['username'].'</p>
+                <p>Password Anda menjadi:<br>PPID_'.$kode_aktifasi.'</p>
+                <p>Silahkan klik link berikut untuk aktivasi akun Anda di Aplikasi PPID KESDM.<br>
+                    <a href="'.site_url('auth/aktifasi/'.$kode_aktifasi).'" target="_blank">Aktifasi</a>
+					atau link berikut<br>
+					'.site_url('auth/aktifasi/'.$kode_aktifasi).'
+                </p>
+                <br/>
+                <br/>
+
+                Salam Keterbukaan Informasi Publik,<br>
+                Admin Aplikasi PPID Kementerian ESDM
+                ';
+                $headers_ss  = 'MIME-Version: 1.0' . "\r\n";
+                $headers_ss .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+                $headers_ss .= 'From: PPID ESDM <noreply@ppid.esdm.go.id>' . "\r\n";
+                $send_email = mail($kepada, $judul, $isi, $headers_ss);
+				
+				$this->session->set_flashdata('itemFlashData','<h3>Reset Password Berhasil.</h3> <br> Silahkan Cek email atau spam Anda');
+				$this->load->view('template/tema',$data);
+			} else {
+				$this->session->set_flashdata('itemFlashGagal','Email Tidak Tersedia');
+				$this->load->view('template/tema',$data);
+			}
+        }
+	}
+
+	function cobaEmailCi(){
+		// echo 'satu';
+		
+		$kode_aktifasi = 'ORwr8I0GFB';
+		$config = Array(
+			'mailtype' => 'html', 
+			'charset' => 'utf-8'
+		);
+		$this->load->library('email', $config);
+		$this->email->from('ppid@esdm.go.id', 'PPID ESDM');
+		$this->email->to('suvi.7888@gmail.com');
+		$this->email->cc('sanusisuvi@yopmail.com');
+		$this->email->bcc('ppid@esdm.go.id');
+
+		$this->email->subject('Email Test aja');
+$isiEmail = '<p>Silahkan klik link berikut untuk aktivasi akun Anda di Aplikasi PPID KESDM.<br>
+	<a href="'.site_url('auth/aktifasi/'.$kode_aktifasi).'" target="_blank">Aktifasi</a>
+	atau link berikut<br>
+	'.site_url('auth/aktifasi/'.$kode_aktifasi).'
+</p>';
+		$this->email->message($isiEmail);
+		
+		$this->email->set_header('MIME-Version', '1.0');
+		$this->email->set_header('Content-type', 'text/html');
+		$this->email->set_header('Header1', 'Value1');
+		$this->email->set_header('Header1', 'Value1');
+
+		$kirimEmail = $this->email->send();
+		if ($kirimEmail){
+			echo '1 kirim email';
+		} else {
+			echo '2 kirim email';
+		}
+		
+	}
 }
+

@@ -9,6 +9,10 @@
         <section class="contact"> 
             <div class="col-md-3"></div>
             <div class="col-md-6">
+<?php /* if ($this->session->flashdata('itemFlashData') == 'Sukses') { ?>
+<div class="alert alert-success alert-dismissable alert_content"><a href="#" class="close" data-dismiss="alert" aria-label="close" title="close"><i class="fa fa-times"></i></a><center><h3>Registrasi Berhasil.</h3><br>Mohon cek Iinbox atau Spam pada email anda untuk aktifasi akun.</center>
+</div>
+<?php } */ ?>
                 <form id="contact_form" class="form well-form" id="loginAdmin" class="sky-form" method="post" action="#" autocomplete="off">
                     <h2>Login </h2>
                     <p>Belum memiliki akun ? <a href="<?php echo site_url('auth/register/'); ?>" class="btn btn-default btn-sm"> Daftar </a></p>

@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="PPID - Kementerian Energi dan Sumber Daya Mineral">
-    <meta name="author" content="Lutfi Fars Hidayat">
+    <meta name="author" content="PPID - Kementerian Energi dan Sumber Daya Mineral">
 
     <!-- Page Title -->
     <title> PPID - Kementerian Energi dan Sumber Daya Mineral | <?php echo @$title; ?> | <?php echo @$subtitle; ?></title>
@@ -74,7 +74,13 @@
         padding: 35px 0;
         background: #000;
     } 
-
+	.social ul.social-icons li a{
+		font-size: 15px;
+		width: 50px;
+		height: 50px;
+		line-height: 50px;
+		margin-right: 5px; 
+	}
 
 </style>
 
@@ -104,10 +110,10 @@
                 <!-- Top Contact Info -->    
                 <div class="row logo-top-info">
                     <div class="container"> 
-                        <div class="col-xs-11 col-sm-11 col-md-5 logo">
+                        <div class="col-xs-11 col-sm-11 col-md-6 logo">
                             <!-- Main Logo -->
                             <a href="<?php echo site_url(); ?>">
-								<img src="<?php echo base_url('assets/front/new/images/logo-footer.png'); ?>" alt="PPID Logo" style="max-width: 90%" />
+								<img src="<?php echo base_url('assets/front/new/images/logo-footer.png'); ?>" alt="PPID Logo"  />
 								<!-- img src="https://www.esdm.go.id/themes/v1/img/xlogo-esdm-web.png.pagespeed.ic.39xo2sd53Y.webp" alt="PPID Logo" / -->
 							</a>
                             <!-- Responsive Toggle Menu -->
@@ -118,23 +124,23 @@
                                 <span class="icon-bar"></span>
                             </button>
                         </div>
-                        <div class="col-md-7 top-info-social">
+                        <div class="col-md-6 top-info-social">
                             <div class="pull-right">
                                 <div class="top-info">
                                     <div class="call">
                                         <h3> Hubungi Kami </h3>
-                                        <p> 021 3804242  </p>
+                                        <p> (021) 3804242<br>Ext. 1224  </p>
                                     </div>
                                     <div class="email">
                                         <h3> Email Kami</h3>
-                                        <p> info@ppid.esdm.go.id </p>
+                                        <p> ppid@esdm.go.id </p>
                                     </div>
                                 </div>
                                 <div class="social">
                                     <ul class="social-icons">
                                         <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                                         <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -155,6 +161,7 @@
                                     <ul>
                                         <li> <a href="<?php echo site_url('permohonan'); ?>"> Permohonan </a></li>
                                         <li> <a href="<?php echo site_url('admin/chart'); ?>"> Rekapitulasi </a></li>
+                                        <li> <a href="<?php echo site_url('admin/Knowledge'); ?>"> Knowledge Base </a></li>
                                         <li> <a href="<?php echo site_url('admin/unit'); ?>"> Manage Unit </a></li>
                                         <li> <a href="<?php echo site_url('admin/pengguna'); ?>"> Manage Pengguna </a></li>
                                     </ul>
@@ -251,7 +258,7 @@
                                     <i class="fa fa-phone" aria-hidden="true"></i>
                                     <div class="contact-details">
                                         <h4 class="pre-footer-title">Hubungi Kami</h4>
-                                        <p> Telp.021 3804242 <br>Fax. 021 3507210</p>
+										<p> (021) 3804242<br>Ext. 1224  </p>
                                     </div>
                                 </div>
                             </div>
@@ -261,8 +268,7 @@
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
                                     <div class="contact-details">
                                         <h4 class="pre-footer-title">Email Kami</h4>
-                                        <p>info@ppid.esdm.go.id
-                                            <br> info@ppid.esdm.go.id </p>
+                                        <p>ppid@esdm.go.id <br>&nbsp;</p>
                                         </div>
                                     </div>
                                 </div>
@@ -270,7 +276,7 @@
                             <!-- Prefooter Section -->
 
                             <!-- Footer widgets -->
-                            <div class="row widgets">
+                            <!-- div class="row widgets">
                                 <div class="col-md-4 col-sm-6">
                                     <div class="about-txt widget">
                                         <img src="<?php echo base_url('assets/front/new/images/logo-footer.png');?>" alt="logo" />
@@ -312,23 +318,8 @@
                                         </ul> 
                                     </div>
                                 </div>
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="newsletter widget">
-                                        <h2 class="widget-title">Berlangganan</h2>
-                                        <p>Berlangganan berita terbaru.</p>
-                                        <!-- ============= Mailchimp Subscribe Form ============= -->
-
-                                        <form action="php/subscribe.php" id="subscribeform" method="post">
-                                            <div class="form-group">
-                                                <input type="email" id="email" name="email" placeholder="Enter your email" class="form-control" title="Please enter your email" data-msg-email="Please enter a valid email">
-                                            </div>
-                                            <button type="submit" class="btn btn-block" id="js-subscribe-btn"> Berlangganan Sekarang! </button>
-
-                                            <div id="js-subscribe-result" data-success-msg="Done. Subscribed" data-error-msg="Oops. Error!"></div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
+                                
+                            </div -->
                             <!-- Footer widgets -->
                         </div>
                     </div>
@@ -337,7 +328,7 @@
                         <div class="container">
                             <div class="row copyright-bar">
                                 <div class="col-md-6">
-                                    <p>Copyright © 2017 PPID Kementerian Energi dan Sumber Daya Alam.</p>
+                                    <p style="color: #fff">Copyright © 2018 PPID Kementerian Energi dan Sumber Daya Mineral.</p>
                                 </div>
                                 <div class="col-md-6 text-right">
                                     <p> <a href="#"> Terms of use</a> <a href="#">Privacy Policy</a> <span>  </p>

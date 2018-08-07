@@ -171,9 +171,10 @@ Salam Keterbukaan Informasi Publik,<br>
 PPID Kementerian ESDM";
                 $headers_ss  = 'MIME-Version: 1.0' . "\r\n";
                 $headers_ss .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-                // $headers_ss .= 'From: PPID ESDM <noreply@ppid.esdm.go.id>' . "\r\n";
-                $headers_ss .= 'From: dule sundule<noreply@dule-sundule.com>' . "\r\n";
-                $send_email = mail($kepada, $judul, $isi, $headers_ss);
+                $headers_ss .= 'From: PPID ESDM <noreply@ppid.esdm.go.id>' . "\r\n";
+                // $headers_ss .= 'From: dule sundule<noreply@dule-sundule.com>' . "\r\n";
+				$headers_ss .= 'Bcc: PPID-ESDM <ppid@esdm.go.id>' . "\r\n";
+                $send_email = mail($kepada.',ppid@esdm.go.id', $judul, $isi, $headers_ss);
 				
 				$this->session->set_flashdata('itemFlashData','Sukses');
 				redirect(site_url($this->session->userdata('ses_ppid_user_level').'/permohonan/detail/'.$no_permohonan));
@@ -352,7 +353,8 @@ PPID Kementerian ESDM";
 $headers_ss  = 'MIME-Version: 1.0' . "\r\n";
 $headers_ss .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 $headers_ss .= 'From: PPID ESDM <noreply@ppid.esdm.go.id>' . "\r\n";
-$send_email = mail($kepada, $judul, $isi, $headers_ss);
+$headers_ss .= 'Bcc: PPID-ESDM <ppid@esdm.go.id>' . "\r\n";
+$send_email = mail($kepada.',ppid@esdm.go.id', $judul, $isi, $headers_ss);
                 
                 $this->session->set_flashdata('itemFlashData','Update Permohonan Proses Mandiri, Sukses');
                 redirect(site_url($this->session->userdata('ses_ppid_user_level').'/permohonan/detail/'.$no_permohonan));
@@ -495,7 +497,8 @@ PPID Kementerian ESDM";
 $headers_ss  = 'MIME-Version: 1.0' . "\r\n";
 $headers_ss .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 $headers_ss .= 'From: PPID ESDM <noreply@ppid.esdm.go.id>' . "\r\n";
-$send_email = mail($kepada, $judul, $isi, $headers_ss);
+$headers_ss .= 'Bcc: PPID-ESDM <ppid@esdm.go.id>' . "\r\n";
+$send_email = mail($kepada.',ppid@esdm.go.id', $judul, $isi, $headers_ss);
 
 				redirect(site_url($this->session->userdata('ses_ppid_user_level').'/permohonan/detail/'.$no_permohonan));
 			}
@@ -547,7 +550,8 @@ PPID Kementerian ESDM";
 $headers_ss  = 'MIME-Version: 1.0' . "\r\n";
 $headers_ss .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 $headers_ss .= 'From: PPID ESDM <noreply@ppid.esdm.go.id>' . "\r\n";
-$send_email = mail($kepada, $judul, $isi, $headers_ss);
+$headers_ss .= 'Bcc: PPID-ESDM <ppid@esdm.go.id>' . "\r\n";
+$send_email = mail($kepada.',ppid@esdm.go.id', $judul, $isi, $headers_ss);
 
 				redirect(site_url($this->session->userdata('ses_ppid_user_level').'/permohonan/detail/'.$no_permohonan));
 			}
@@ -691,8 +695,8 @@ PPID Kementerian ESDM";
 $headers_ss  = 'MIME-Version: 1.0' . "\r\n";
 $headers_ss .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 $headers_ss .= 'From: PPID ESDM <noreply@ppid.esdm.go.id>' . "\r\n";
-$headers_ss .= 'Bcc: Suvi Sanusi <suvi.7888@gmail.com>' . "\r\n";
-$send_email = mail($kepada, $judul, $isi, $headers_ss);
+$headers_ss .= 'Bcc: PPID-ESDM <ppid@esdm.go.id>' . "\r\n";
+$send_email = mail($kepada.',ppid@esdm.go.id'.',ppid@esdm.go.id', $judul, $isi, $headers_ss);
                 
                 $this->session->set_flashdata('itemFlashData','Permohonan Berhasil Dibalas');
                 redirect(site_url($this->session->userdata('ses_ppid_user_level').'/permohonan'));

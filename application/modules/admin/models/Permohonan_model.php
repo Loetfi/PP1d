@@ -60,6 +60,18 @@ class Permohonan_model extends CI_Model{
 		return $query->result_array();
     }
     
+	function list_knowledge(){
+        if ($this->session->userdata('ses_ppid_user_level') == 'admin'){
+			$sql = "select 
+				a.*
+			from ppid_permohonan a
+			where status = 'Selesai'
+			order by cdate DESC";
+		}
+		$query = $this->db->query($sql);
+		return $query->result_array();
+    }
+    
     function getLastNoPermohonan(){
         $sql = "select max(no_permohonan) as no_permohonan 
 		from ppid_permohonan 

@@ -174,7 +174,42 @@ class Profil extends CI_Controller {
         redirect(site_url('profil'));
     }
     
-    
+    /** Form update foto KTP
+    **/
+	function ubahPassword(){
+        $this->form_validation->set_rules('lastpassword', 'Last Password', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required');
+        $this->form_validation->set_rules('repassword', 'RePassword', 'required|matches[password]');
+		if ($this->form_validation->run() == FALSE){
+			if ($_SERVER['REQUEST_METHOD'] == 'POST')
+				$this->session->set_flashdata('itemFlashGagal','Terdapat kesalahan pada ubah password anda');
+			redirect(site_url('profil'));
+		} else {
+			$cdate = time();
+			
+			$lastpassword = @$_POST['lastpassword'];
+			$password = @$_POST['password'];
+			$userId = $this->session->userdata('ses_ppid_user_id');
+			$sql = "select * from ppid_pengguna where id_pengguna = '$userId' ";
+			$query = $this->db->query($sql);
+			$detailUser = $query->row_array();
+			
+			if ($lastpassword == $detailUser['password']){
+				$dataUpdate = array(
+					'password' => $password,
+					'mdate' => $cdate,
+				);
+				$whereUpdate = array('id_pengguna' => $userId);
+				$doUpdate = $this->User_account_model->penggunaUpdate($dataUpdate, $whereUpdate);
+				
+				$this->session->set_flashdata('itemFlashData','Sukses');
+				redirect(site_url('profil'));
+			} else {
+				$this->session->set_flashdata('itemFlashGagal','Terdapat kesalahan pada ubah password anda.');
+				redirect(site_url('profil'));
+			}
+		}
+	}
     
     function logout(){}
 }

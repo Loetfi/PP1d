@@ -19,13 +19,16 @@ class Blog extends CI_Controller {
 		$this->load->view('template/tema', $data, FALSE);
 	}
 
-	public function detail($tahun , $bulan , $slug)
+	public function detail($tahun =0, $bulan =0, $slug='')
 	{
+        if ($tahun ==0 || $bulan == 0 || $slug == ''){
+            redirect('blog');
+        }
 		// echo "Blog kuh";
 		$data['title'] = 'Beranda';
 		$data['page'] = 'front/newsdetail'; 
 		$data['news'] = $this->Home_model->getNewsDetail($tahun , $bulan , $slug);
-		if (count($data['news']) == 0 ) {
+		if ($data['news'] == "" ) {
 			redirect('blog','refresh');
 			exit();
 		}

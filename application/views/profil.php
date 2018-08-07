@@ -9,18 +9,15 @@
 
         <h3>Profil Pengguna</h3>
         <hr>
-        
+<?php if ($this->session->flashdata('itemFlashData') != '') { ?>
+<div class="alert alert-success alert-dismissable alert_content"><a href="#" class="close" data-dismiss="alert" aria-label="close" title="close"><i class="fa fa-times"></i></a><center><?php echo $this->session->flashdata('itemFlashData'); ?></center>
+</div>
+<?php } else if ($this->session->flashdata('itemFlashGagal') != '') { ?>
+<div class="alert alert-danger alert-dismissable alert_content"><a href="#" class="close" data-dismiss="alert" aria-label="close" title="close"><i class="fa fa-times"></i></a><center><?php echo $this->session->flashdata('itemFlashGagal'); ?></center>
+</div>
+<?php } ?>
         <div class="col-md-4">
-            <!--<div class="panel panel-warning">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Ubah Foto</h3>
-                </div>
-                <div class="panel-body">
-                    Panel content
-                </div>
-            </div> -->
-
-            <div class="panel panel-warning">
+			<div class="panel panel-warning">
                 <div class="panel-heading">
                     <h3 class="panel-title">KTP/SIM/NPWP</h3>
                 </div>
@@ -32,6 +29,33 @@
                     <?php } ?>
                 </div>
             </div>
+
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Ubah Password</h3>
+                </div>
+                <div class="panel-body">
+                    <form id="contact_form" class="form" action="<?php echo site_url('profil/ubahPassword'); ?>" method="post" enctype="multipart/form-data">
+						<div id="lastpassword" class="formFieldSs <?php echo form_error('lastpassword') !='' ? 'error':''; ?>">
+                            <label>Password saat ini*</label>
+                            <input type="password" name="lastpassword" class="form-control" id="lastpassword" placeholder="Password saat ini" value="" >
+                            <label class="ui-state-error"><?php echo form_error('lastpassword'); ?></label>
+                        </div> 
+						<div id="password" class="formFieldSs <?php echo form_error('password') !='' ? 'error':''; ?>">
+                            <label>Password baru*</label>
+                            <input type="password" name="password" class="form-control" id="password" placeholder="Password baru" value="" >
+                            <label class="ui-state-error"><?php echo form_error('password'); ?></label>
+                        </div> 
+						<div id="repassword" class="formFieldSs <?php echo form_error('repassword') !='' ? 'error':''; ?>">
+                            <label>RePassword baru*</label>
+                            <input type="password" name="repassword" class="form-control" id="repassword" placeholder="RePassword baru" value="" >
+                            <label class="ui-state-error"><?php echo form_error('repassword'); ?></label>
+                        </div> 
+						<button type="submit" class="btn btn-default" id="js-contact-btn">Simpan </button>
+					</form>
+                </div>
+            </div>
+
 
             <!-- div class="panel panel-warning">
                 <div class="panel-heading">

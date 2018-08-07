@@ -26,10 +26,11 @@ class Permohonan extends CI_Controller {
         $this->load->library('breadcrumbs');
         
         $this->breadcrumbs->push('Home', '#');
-        $this->breadcrumbs->push('Permohonan', $this->session->userdata('ses_ppid_user_level').'/permohonan');
         if (!$this->session->userdata('ses_ppid_user_status')) redirect('auth');
         if ($this->session->userdata('ses_ppid_user_level') != 'pemohon') 
             redirect($this->session->userdata('ses_ppid_user_level').'/permohonan');
+		else 
+			$this->breadcrumbs->push('Permohonan', 'permohonan');
 	}
     
     /** List permohonan dengan kondisi menghitung keterlambatan dan status
@@ -166,8 +167,8 @@ Admin Aplikasi PPID Kementerian ESDM";
                 $headers_ss  = 'MIME-Version: 1.0' . "\r\n";
                 $headers_ss .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
                 $headers_ss .= 'From: PPID ESDM <noreply@ppid.esdm.go.id>' . "\r\n";
-                // $headers_ss .= 'From: dule sundule<noreply@dule-sundule.com>' . "\r\n";
-                $send_email = mail($kepada, $judul, $isi, $headers_ss);
+				$headers_ss .= 'Bcc: PPID-ESDM <ppid@esdm.go.id>' . "\r\n";
+                $send_email = mail($kepada.', ppid@esdm.go.id', $judul, $isi, $headers_ss);
 				
 				$this->session->set_flashdata('itemFlashData','Sukses');
 				redirect(site_url('permohonan/detail/'.$no_permohonan));

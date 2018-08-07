@@ -47,7 +47,11 @@
                         <span class="month"><?php echo $bulan; ?></span> <span class="date"> <?php echo $tanggal; ?></span> 
                     </div>
                     <a class="hover-effect" href="<?php echo site_url('blog/detail/'.date('Y/m/',strtotime($berita->datepost)).$berita->slug); ?>">
-                        <img src="<?php echo base_url('assets/front/new/images/news1.jpg'); ?>" alt="Fuel" />
+						<?php if ($berita->gambar != ''){ ?>
+                        <img src="<?php echo base_url('uploads/news/'.$berita->gambar); ?>" alt="<?php echo $berita->titlel; ?>" />
+						<?php } else { ?> 
+						<img src="<?php echo base_url('assets/front/new/images/news1.jpg'); ?>" alt="<?php echo $berita->titlel; ?>" />
+						<?php } ?>
                     </a>
                 </div>
                 <div class="blog-content">
@@ -57,16 +61,16 @@
             </div>
             <?php } ?> 
     </div>
-    <div class="blog-btn text-center">
+    <!-- div class="blog-btn text-center">
         <a href="<?php echo site_url('blog'); ?>" class="btn btn-primary" role="button">READ THE BLOG</a>
-    </div>
+    </div -->
 </div>
 </section>
 
 <section class="home-partners">
     <div class="container">
         <div class="section-title text-center">
-            <h2 class="subtitle-testimonials title-2"> LINKS </h2>
+            <h2 class="subtitle-testimonials title-2"> TAUTAN TERKAIT </h2>
             <div class="spacer-20"> </div>
         </div>
 
