@@ -32,7 +32,7 @@ class Pemohon extends CI_Controller {
 				$this->res(200, 1, 'Success', $this->data['res']);
 			}
 		} catch (Exception $e) {
-				$this->res(400, 0, 'Failed', $e->getMessage());
+			$this->res(400, 0, 'Failed', $e->getMessage());
 		}
 
 	}
