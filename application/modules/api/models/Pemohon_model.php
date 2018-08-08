@@ -3,11 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pemohon_model extends CI_Model {
 
-	function list()
+	function list($param)
 	{
 		return $this->db->select('*')
 				->from('ppid_pengguna')
 				->where('role','pemohon')
+				->limit($param['limit'], $param['offset']);
 				->get()
 				->result_array();
 	}

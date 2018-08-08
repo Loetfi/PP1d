@@ -23,8 +23,8 @@ class Pemohon extends CI_Controller {
 
 	public function list()
 	{ 
-
-		$this->data['res'] = $this->pemohon_model->list();
+		$post = $this->input->post();
+		$this->data['res'] = $this->pemohon_model->list($post);
 		try { 
 			if(empty($this->data['res'])) {
 				$this->res(400, 0, 'Failed', []);
