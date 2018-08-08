@@ -80,7 +80,8 @@ class Auth extends CI_Controller
 						'nama'		=> $get_post['fullname'],
 						'username'	=> $get_post['username'],
 						'email'		=> $get_post['email'],
-						'password'	=> $get_post['password']
+						'password'	=> $get_post['password'],
+						'role'		=> 'pemohon'
 					);
 					$insert = $this->db->insert('ppid_pengguna', $data);
 					
