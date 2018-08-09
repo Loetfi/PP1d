@@ -24,8 +24,8 @@ class Permohonan extends CI_Controller {
 
 	public function by_pengguna()
 	{ 
-		$id_pengguna = $this->input->get('id_pengguna');
-		$this->data['important'] = $this->permohonan_model->by_pengguna($id_pengguna);
+		$post = $this->input->post();
+		$this->data['important'] = $this->permohonan_model->by_pengguna($post);
 
 		try { 
 			if(empty($this->data['important'])) {
