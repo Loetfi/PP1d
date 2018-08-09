@@ -6,8 +6,9 @@ class Pemohon_model extends CI_Model {
 	function list($param)
 	{
 		return $this->db->select('*')
-				->from('ppid_pengguna')
-				->where('role','pemohon')
+				->from('ppid_pengguna a')
+				->join('ppid_permohonan b', 'b.id_pengguna = a.id_pengguna')
+				->where('role', 'pemohon')
 				->limit($param['limit'], $param['offset'])
 				->get()
 				->result_array();
