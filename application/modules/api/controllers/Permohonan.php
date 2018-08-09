@@ -31,7 +31,7 @@ class Permohonan extends CI_Controller {
 			if(empty($this->data['important'])) {
 				$this->res(400, 0, 'Gagal', []);
 			} else {
-				$this->res(200, 1, 'Berhasil', $this->permohonan_model->by_pengguna($id_pengguna));
+				$this->res(200, 1, 'Berhasil', $this->permohonan_model->by_pengguna($post));
 			}
 		} catch (Exception $e) {
 			$this->res(400, 0, 'Gagal', $e->getMessage());
@@ -45,13 +45,13 @@ class Permohonan extends CI_Controller {
 	{ 
 		$id_pengguna = $this->input->get('id_pengguna');
 		$id_permohonan = $this->input->get('id_permohonan');
-		$this->data['res'] = $this->permohonan_model->by_detail($id_pengguna , $id_permohonan);
+		$this->data['res'] = $this->permohonan_model->by_detail($id_pengguna, $id_permohonan);
 
 		try { 
 			if(empty($this->data['res'])) {
 				$this->res(400, 0, 'Gagal', []);
 			} else {
-				$this->res(200, 1, 'Berhasil', $this->permohonan_model->by_detail($id_pengguna , $id_permohonan));
+				$this->res(200, 1, 'Berhasil', $this->permohonan_model->by_detail($id_pengguna, $id_permohonan));
 			}
 		} catch (Exception $e) {
 			$this->res(200, 1, 'Berhasil', $e->getMessage());
