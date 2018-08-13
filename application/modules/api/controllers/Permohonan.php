@@ -193,6 +193,42 @@ class Permohonan extends CI_Controller {
  
 	} 
 
+	function verifikasi()
+	{
+		$post = $this->input->post();
+		$no_permohonan = $post['no_permohonan'];
+		$id_admin = $post['id_admin'];
+		$cDate = time();
+		
+		// update status
+		$dataUpdate = array(
+			'id' => $no_permohonan,
+			'data' => array(
+				'status' => 'Verifikasi',
+				'vdate' => $cDate,
+				'mdate' => $cDate
+			)
+		);
+		$doUpdate = $this->permohonan_model->update_permohonan_by_id($dataUpdate);
+		if($doUpdate)
+		{
+			
+			## insert ke log
+			$dataInsertLog = array(
+				'no_permohonan' => $no_permohonan,
+				'status' => 'Verifikasi',
+				'deskripsi' => 'Permohonan sedang diverifikasi.',
+				'cdate' => $cDate,
+				'id_admin' => $id_admin,
+			);
+			$this->permohonan_model->insert_permohonan_log($dataInsertLog);
+            $this->res(200, 1, 'Berhasil');
+		}
+		else
+		{
+			$this->res(400, 1, 'Gagal');
+		}
+	}
 
 }
 
