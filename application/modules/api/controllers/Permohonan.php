@@ -118,7 +118,7 @@ class Permohonan extends CI_Controller {
 			$this->res(200, 1, 'Berhasil', $no_permohonan);
 		}
 		else {
-			$this->res(400, 0, 'Gagal');
+			$this->res(400, 0, 'Gagal', array());
 		}
 	}
 	
@@ -222,11 +222,11 @@ class Permohonan extends CI_Controller {
 				'id_admin' => $id_admin,
 			);
 			$this->permohonan_model->insert_permohonan_log($dataInsertLog);
-            $this->res(200, 1, 'Berhasil');
+            $this->res(200, 1, 'Berhasil', array());
 		}
 		else
 		{
-			$this->res(400, 1, 'Gagal');
+			$this->res(400, 1, 'Gagal', array());
 		}
 	}
 
